@@ -1,0 +1,30 @@
+<div style="max-width:400px;margin:40px auto;border:2px solid #009688;border-radius:16px;padding:28px 22px;background:#f3fefd;box-shadow:0 4px 16px rgba(0,150,136,0.08);display:flex;flex-direction:column;align-items:center;gap:18px;font-family:'Segoe UI',Arial,sans-serif;">
+  <div id="fact-display" style="min-height:62px;display:flex;align-items:center;justify-content:center;font-size:1.08rem;color:#2e423f;text-align:center;">
+    Aim to drink about 8 glasses (around 2 liters) of water per day, but needs can vary based on activity and climate.
+  </div>
+  <button
+    type="button"
+    onclick="(function(){
+      if(!window.goodHealthFacts){
+        window.goodHealthFacts = [
+          'Aim to drink about 8 glasses (around 2 liters) of water per day, but needs can vary based on activity and climate.',
+          'For general health, strive for at least 150 minutes of moderate-intensity exercise or 75 minutes of vigorous-intensity exercise per week.',
+          'Most adults need 7-9 hours of quality sleep per night for optimal physical and mental health.',
+          'A balanced diet includes a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats.',
+          'Taking short breaks during your day to stretch, walk, or meditate can improve focus and reduce stress.'
+        ];
+        window.goodHealthFactIndex = 0;
+      }
+      window.goodHealthFactIndex = (window.goodHealthFactIndex + 1) % window.goodHealthFacts.length;
+      document.getElementById('fact-display').innerHTML = window.goodHealthFacts[window.goodHealthFactIndex];
+    })();"
+    style="background:#009688;color:#fff;border:none;padding:12px 28px;border-radius:30px;font-size:1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,150,136,0.10);transition:background 0.2s;"
+    onmouseover="this.style.background='#00796b';"
+    onmouseout="this.style.background='#009688';"
+  >
+    Show Me Another Fact
+  </button>
+  <div style="display:none;">
+    <!-- Inline "script": facts and index are initialized in the onclick above to ensure execution on first click -->
+  </div>
+</div>
